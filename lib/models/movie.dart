@@ -15,7 +15,7 @@ class MovieModel with _$MovieModel {
       {required int id,
       required String title,
       required String overview,
-      @JsonKey(name: 'poster_path') required String poster,
+      @JsonKey(name: 'poster_path') String? poster,
       @JsonKey(name: 'release_date') required DateTime date}) = _MovieModel;
 
   factory MovieModel.fromJson(Map<String, dynamic> json) =>

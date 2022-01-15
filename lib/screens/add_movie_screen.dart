@@ -27,50 +27,48 @@ class _AddMovieScreenState extends State<AddMovieScreen> {
   @override
   Widget build(BuildContext context) {
     return MainScaffold(
-      appBar: AppBar(
-        actions: [
-          IconButton(
-            onPressed: () {
-              showDialog(
-                  context: context,
-                  builder: (BuildContext context) {
-                    return AlertDialog(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15.0)),
-                      content: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          IconButton(
-                            onPressed: () async {
-                              poster =
-                                  await ImagePickerHelper.cameraImagePicker()
-                                      .whenComplete(() {
-                                setState(() {});
-                                Navigator.pop(context);
-                              });
-                            },
-                            icon: const Icon(Icons.add_a_photo_outlined),
-                          ),
-                          IconButton(
-                            onPressed: () async {
-                              poster =
-                                  await ImagePickerHelper.galleryImagePicker()
-                                      .whenComplete(() {
-                                setState(() {});
-                                Navigator.pop(context);
-                              });
-                            },
-                            icon: const Icon(Icons.image_outlined),
-                          ),
-                        ],
-                      ),
-                    );
-                  }).whenComplete(() {});
-            },
-            icon: const Icon(Icons.add_a_photo_outlined),
-          ),
-        ],
-      ),
+      actions: [
+        IconButton(
+          onPressed: () {
+            showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15.0)),
+                    content: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        IconButton(
+                          onPressed: () async {
+                            poster =
+                            await ImagePickerHelper.cameraImagePicker()
+                                .whenComplete(() {
+                              setState(() {});
+                              Navigator.pop(context);
+                            });
+                          },
+                          icon: const Icon(Icons.add_a_photo_outlined),
+                        ),
+                        IconButton(
+                          onPressed: () async {
+                            poster =
+                            await ImagePickerHelper.galleryImagePicker()
+                                .whenComplete(() {
+                              setState(() {});
+                              Navigator.pop(context);
+                            });
+                          },
+                          icon: const Icon(Icons.image_outlined),
+                        ),
+                      ],
+                    ),
+                  );
+                }).whenComplete(() {});
+          },
+          icon: const Icon(Icons.add_a_photo_outlined),
+        ),
+      ],
       child: Consumer(
         builder: (BuildContext context, WidgetRef ref, Widget? child) {
           final movies = ref.watch(myMoviesProvider);
@@ -130,7 +128,7 @@ class _AddMovieScreenState extends State<AddMovieScreen> {
                                     id: Random().nextInt(10000),
                                     title: _titleController.text,
                                     overview: _titleController.text,
-                                    poster: poster!,
+                                    poster: poster,
                                     date: date!))
                             .then((value) {
                           showDialog(

@@ -24,7 +24,7 @@ class _$MovieModelTearOff {
       {required int id,
       required String title,
       required String overview,
-      @JsonKey(name: 'poster_path') required String poster,
+      @JsonKey(name: 'poster_path') String? poster,
       @JsonKey(name: 'release_date') required DateTime date}) {
     return _MovieModel(
       id: id,
@@ -49,7 +49,7 @@ mixin _$MovieModel {
   String get title => throw _privateConstructorUsedError;
   String get overview => throw _privateConstructorUsedError;
   @JsonKey(name: 'poster_path')
-  String get poster => throw _privateConstructorUsedError;
+  String? get poster => throw _privateConstructorUsedError;
   @JsonKey(name: 'release_date')
   DateTime get date => throw _privateConstructorUsedError;
 
@@ -68,7 +68,7 @@ abstract class $MovieModelCopyWith<$Res> {
       {int id,
       String title,
       String overview,
-      @JsonKey(name: 'poster_path') String poster,
+      @JsonKey(name: 'poster_path') String? poster,
       @JsonKey(name: 'release_date') DateTime date});
 }
 
@@ -104,7 +104,7 @@ class _$MovieModelCopyWithImpl<$Res> implements $MovieModelCopyWith<$Res> {
       poster: poster == freezed
           ? _value.poster
           : poster // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       date: date == freezed
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
@@ -123,7 +123,7 @@ abstract class _$MovieModelCopyWith<$Res> implements $MovieModelCopyWith<$Res> {
       {int id,
       String title,
       String overview,
-      @JsonKey(name: 'poster_path') String poster,
+      @JsonKey(name: 'poster_path') String? poster,
       @JsonKey(name: 'release_date') DateTime date});
 }
 
@@ -161,7 +161,7 @@ class __$MovieModelCopyWithImpl<$Res> extends _$MovieModelCopyWithImpl<$Res>
       poster: poster == freezed
           ? _value.poster
           : poster // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       date: date == freezed
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
@@ -177,7 +177,7 @@ class _$_MovieModel implements _MovieModel {
       {required this.id,
       required this.title,
       required this.overview,
-      @JsonKey(name: 'poster_path') required this.poster,
+      @JsonKey(name: 'poster_path') this.poster,
       @JsonKey(name: 'release_date') required this.date});
 
   factory _$_MovieModel.fromJson(Map<String, dynamic> json) =>
@@ -191,7 +191,7 @@ class _$_MovieModel implements _MovieModel {
   final String overview;
   @override
   @JsonKey(name: 'poster_path')
-  final String poster;
+  final String? poster;
   @override
   @JsonKey(name: 'release_date')
   final DateTime date;
@@ -243,7 +243,7 @@ abstract class _MovieModel implements MovieModel {
       {required int id,
       required String title,
       required String overview,
-      @JsonKey(name: 'poster_path') required String poster,
+      @JsonKey(name: 'poster_path') String? poster,
       @JsonKey(name: 'release_date') required DateTime date}) = _$_MovieModel;
 
   factory _MovieModel.fromJson(Map<String, dynamic> json) =
@@ -257,7 +257,7 @@ abstract class _MovieModel implements MovieModel {
   String get overview => throw _privateConstructorUsedError;
   @override
   @JsonKey(name: 'poster_path')
-  String get poster => throw _privateConstructorUsedError;
+  String? get poster => throw _privateConstructorUsedError;
   @override
   @JsonKey(name: 'release_date')
   DateTime get date => throw _privateConstructorUsedError;

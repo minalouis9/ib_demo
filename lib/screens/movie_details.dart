@@ -14,18 +14,14 @@ class MovieDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MainScaffold(
-      appBar: AppBar(
-        title: Text(movie.title, style: kTitleTextStyle),
-        centerTitle: true,
-      ),
+      title: Text(movie.title, style: kTitleTextStyle),
       child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
           children: [
-            Expanded(
-              child: MovieCard(
-                  posterUrl: movie.poster, isNetworkImage: isNetworkImage),
-            ),
+            MovieCard(
+                posterUrl: movie.poster, isNetworkImage: isNetworkImage),
             const SizedBox(height: 15.0),
             Text(movie.title, style: kTitleTextStyle),
             const SizedBox(height: 15.0),

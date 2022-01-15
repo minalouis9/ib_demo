@@ -27,15 +27,14 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return MainScaffold(
-      appBar: AppBar(
-        actions: [
-          IconButton(
-            onPressed: () =>
-                Navigator.pushNamed(context, RoutePaths.addMovieScreen),
-            icon: const Icon(Icons.add),
-          ),
-        ],
-      ),
+      title: Text(_currentIndex == 0 ? 'All Movies' : 'My Movies'),
+      actions: [
+        IconButton(
+          onPressed: () =>
+              Navigator.pushNamed(context, RoutePaths.addMovieScreen),
+          icon: const Icon(Icons.add),
+        ),
+      ],
       child: IndexedStack(
         index: _currentIndex,
         children: const [AllMoviesTab(), MyMoviesTab()],

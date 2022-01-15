@@ -11,7 +11,7 @@ _$_MovieModel _$_$_MovieModelFromJson(Map<String, dynamic> json) {
     id: json['id'] as int,
     title: json['title'] as String,
     overview: json['overview'] as String,
-    poster: json['poster_path'] as String,
+    poster: json['poster_path'] as String?,
     date: DateTime.parse(json['release_date'] as String),
   );
 }
