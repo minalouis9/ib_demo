@@ -39,16 +39,12 @@ class DatabaseHelper {
     );
   }
 
-  Future<void> deleteDatabase(
-      String dbName, String createCmd) async {
+  Future<void> deleteDatabase(String dbName, String createCmd) async {
     // Open the database
     Database database = await _initializeDB(dbName, createCmd);
 
     // Delete the database
     await database.delete(dbName);
-
-    // Close the database
-    // await database.close();
   }
 
   Future<void> deleteFromDatabase(
@@ -80,9 +76,6 @@ class DatabaseHelper {
       whereArgs: [id],
     );
 
-    // Close the database
-    // await database.close();
-
     return result;
   }
 
@@ -93,9 +86,6 @@ class DatabaseHelper {
 
     // Query the table for all The locations.
     final List<Map<String, dynamic>> result = await database.query(dbName);
-
-    // Close the database
-    // await database.close();
 
     return result;
   }
